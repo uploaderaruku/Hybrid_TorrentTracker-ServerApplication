@@ -51,7 +51,7 @@ namespace Tracker_Server.WebsocketTracker
                 peer_id = session.peer_id;
 
                 //send packet (isStarted || isCompleted || isUpdate)
-                if (isStopped || isStarted || isCompleted || isUpdate)
+                if (isStopped || isStarted || isCompleted || isUpdate || request.ContainsKey("answer"))
                 {
                     //search torrent peer info from trackerswarm, with info_hash.
                     var swarm = WebTrackerSwarmManager.instance().SearchTrackerSwarm(info_hash);
